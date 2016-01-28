@@ -25,7 +25,7 @@ var calculator = function (req, res, next) {
     var y = qs.y;
 
     //if user puts in addition
-    if (method === 'add') {
+    if (method == 'add') {
         var total = parseFloat(x) + parseFloat(y);
 
         res.writeHead(200, {
@@ -37,7 +37,7 @@ var calculator = function (req, res, next) {
         res.end();
     }
     //if user puts in subtraction
-    if (method === 'subtract') {
+    if (method == 'subtract') {
         var total = parseFloat(x) - parseFloat(y);
 
         res.writeHead(200, {
@@ -49,7 +49,7 @@ var calculator = function (req, res, next) {
         res.end();
     }
     //if user puts in multiplication
-    if (method === 'multiply') {
+    if (method == 'multiply') {
         var total = parseFloat(x) * parseFloat(y);
 
         res.writeHead(200, {
@@ -60,8 +60,9 @@ var calculator = function (req, res, next) {
 
         res.end();
     }
+    
     //if user puts in division
-    if (method === 'divide') {
+    if (method == 'divide') {
         var total = parseFloat(x) / parseFloat(y);
 
         res.writeHead(200, {
@@ -75,9 +76,9 @@ var calculator = function (req, res, next) {
 
     //write error message for wrong querystring
     else {
-            res.writeHead(200, {
-                "Content-Type": "text-plain"
-            });
+        res.writeHead(200, {
+            "Content-Type": "text-plain"
+        });
 
         res.write("Please try again with the url http://localhost:3000/lab3?method=add&x=16&y=4");
         res.end();
